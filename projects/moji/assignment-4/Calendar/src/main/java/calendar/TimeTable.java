@@ -52,7 +52,7 @@ public class TimeTable {
 	        //Retrieve the appts - <appt> 
 		for (int i = 0; i < appts.size(); i++) {
 			Appt appt=appts.get(i);
-			if(!appt.getValid()) continue;
+			if(appt.getValid()) continue;
 			// Figure out which days the appointment occurs on
 			LinkedList<GregorianCalendar> apptOccursOnDays = getApptOccurences(
 					appt, firstDay, lastDay);
@@ -89,7 +89,7 @@ public class TimeTable {
 	        GregorianCalendar firstDay, GregorianCalendar lastDay) {
 	        
 	        LinkedList<GregorianCalendar> result = new LinkedList<GregorianCalendar>();
-	        
+
 	        //Make sure that the firstDay is before the last day
 	        if (!firstDay.before(lastDay)) {
 	            return result;
@@ -105,12 +105,12 @@ public class TimeTable {
 	        if (!occurrenceDay.before(lastDay)) {
 	            return result;
 	        }
-	        
-	            
+
+
 
 	            //Make sure that there is a limited number of recurrences
 	            for (int i = 0; i < appt.getRecurNumber()+1; i++) {
-	                
+
 	                //Add the day of occurrence to the list if it is after the first day
 	                if (!occurrenceDay.before(firstDay)) {
 	                    result.add(occurrenceDay);
