@@ -1,0 +1,7 @@
+1. in Appt
+the isValid(...) allows the date 2/30, which is not valid. 
+it reveals bug at line 121 of Appt class.
+
+2. in TimeTable
+getAppRange(...) allow the last day before the first day.
+at line 40, it comments out the if statement.
